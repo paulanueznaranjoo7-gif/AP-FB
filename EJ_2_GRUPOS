@@ -1,0 +1,33 @@
+def formar_equipos(personas):
+    
+    final = []
+    for mask in range(2 ** len(personas)):
+        
+        lista = []
+        
+        for nombre in range(len(personas)):
+            if mask & (1 << nombre):
+                lista.append(personas[nombre])
+                
+        if len(lista) == 2:
+            final.append(lista)
+            lista = []
+    
+    return final
+            
+
+
+def main():
+
+    personas = ["Ana", "Luis", "Marta", "Pedro"]
+
+    resultado = formar_equipos(personas)
+
+    print("Equipos posibles:")
+
+    for equipo in resultado:
+        print(equipo)
+
+
+if __name__ == "__main__":
+    main()
