@@ -1,0 +1,42 @@
+def find_subsets(numbers, target):
+    # =====================================
+    # TU CÓDIGO EMPIEZA AQUÍ
+    tamaño = len(numbers)
+    lista = []
+    for mask in range(2 ** tamaño):
+        
+        suma = 0
+        resultado = []
+        for i in range(tamaño):
+            if mask & (1 << i):
+                suma += numbers[i]
+                resultado.append(numbers[i])
+        if suma == target:
+            lista.append(resultado)
+        
+    return lista
+        
+        
+    
+    
+    
+    
+    
+    # TU CÓDIGO TERMINA AQUÍ
+    # =====================================
+
+
+def main():
+    numbers = [3, 5, 7, 9]
+    target = 12
+
+    result = find_subsets(numbers, target)
+
+    print("Resultado:")
+
+    for subset in result:
+        print(subset)
+
+
+if __name__ == "__main__":
+    main()
